@@ -57,4 +57,15 @@ public class Loan {
 		this.borrower = borrower;
 	}
 
+	@Override
+	public String toString() {
+		return "Loan{" +
+				"loanId=" + loanId +
+				", requestedAmount=" + requestedAmount +
+				", termMonths=" + termMonths +
+				", annualInterest=" + annualInterest +
+				", type='" + type + '\'' +
+				", borrower=" + borrower +
+				'}';
+	}
 }

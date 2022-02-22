@@ -1,18 +1,18 @@
 package com.example.restservice.util;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.example.restservice.model.Borrower;
 import com.example.restservice.model.Loan;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.example.restservice.model.LoanTypes.LOAN_TYPE_CONSUMER;
+import static com.example.restservice.model.LoanTypes.LOAN_TYPE_STUDENT;
+
 public class LoanGeneratonUtil {
 
-	public static String LOAN_TYPE_STUDENT = "student";
-	public static String LOAN_TYPE_CONSUMER = "consumer";
-
 	public static Loan createLoan(Long loanId) {
-		String loanType = loanId % 2 == 0 ? LOAN_TYPE_STUDENT : LOAN_TYPE_CONSUMER;
+		String loanType = loanId % 2 == 0 ? LOAN_TYPE_STUDENT.getShortName() : LOAN_TYPE_CONSUMER.getShortName();
 		Borrower borrower = new Borrower();
 		borrower.setName("Borrower ".concat(loanId.toString()));
 		borrower.setAge(23);
@@ -25,7 +25,7 @@ public class LoanGeneratonUtil {
 		loan.setLoanId(loanId);
 		loan.setRequestedAmount(1000D * loanId);
 		loan.setTermMonths(loanId % 2 == 0 ? 36 : 60);
-		loan.setAnnualInterest(0.2 * (loanId / (loanId + 1)));
+		loan.setAnnualInterest(0.2 * (loanId / (loanId + 1D)));
 		loan.setType(loanType);
 		loan.setBorrower(borrower);
 

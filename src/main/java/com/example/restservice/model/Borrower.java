@@ -57,4 +57,15 @@ public class Borrower {
 		this.creditHistory = creditHistory;
 	}
 
+	@Override
+	public String toString() {
+		return "Borrower{" +
+				"name='" + name + '\'' +
+				", age=" + age +
+				", annualIncome=" + annualIncome +
+				", delinquentDebt=" + delinquentDebt +
+				", annualDebt=" + annualDebt +
+				", creditHistory=" + creditHistory +
+				'}';
+	}
 }
